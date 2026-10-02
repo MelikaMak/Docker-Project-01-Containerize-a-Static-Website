@@ -1,0 +1,6 @@
+# Files Docker should not send to the build.
+# Works like .gitignore, but for "docker build".
+.git
+README.md
+Dockerfile*
+.dockerignore

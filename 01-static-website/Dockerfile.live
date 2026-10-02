@@ -1,0 +1,18 @@
+# Start from an image that already has Node.js and npm installed.
+FROM node:alpine
+
+# RUN happens at BUILD time. Here it installs http-server into the image.
+RUN npm install -g http-server
+
+# Like "cd /app", but it stays for every step after this one.
+WORKDIR /app
+
+# Copy our website into /app.
+COPY site/ /app/
+
+# Documentation only: http-server listens on port 8080.
+EXPOSE 8080
+
+# CMD happens at START time (every time a container starts).
+# -c-1 turns off caching, so the browser always gets the newest files.
+CMD ["http-server", ".", "-p", "8080", "-c-1"]
