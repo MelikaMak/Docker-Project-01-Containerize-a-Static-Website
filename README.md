@@ -181,7 +181,7 @@ docker stop site
 A **volume** (here: a "bind mount") shares a folder from your computer with the container. The container sees your **real, live files**, not a copy.
 
 ```bash
-docker run -d --rm --name site -p 8080:80 -v "${PWD}/site":/usr/share/nginx/html:ro nginx:alpine
+docker run -d --rm --name site -p 8080:80 -v "${PWD}/site:/usr/share/nginx/html:ro" nginx:alpine
 ```
 
 Look at the `-v` part: **`YOUR_FOLDER:CONTAINER_FOLDER`**
